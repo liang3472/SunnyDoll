@@ -57,8 +57,7 @@ let getVoiceUrl = (token, text) => {
 getWeather(text => {
 	console.log(text);
 	getToken(token => {
-		console.log(getVoiceUrl(token, text));
-		execCmd(`mpg123 ${getVoiceUrl(token, text)}`);
+		execCmd(`mpg123 "${getVoiceUrl(token, text)}"`);
 	});
 });
 
