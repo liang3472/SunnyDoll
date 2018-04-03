@@ -1,2 +1,5 @@
-#SunnyDoll
-####树莓派 天气应用
+##SunnyDall
+
+* 安装Node.js
+* 命令行执行 `npm i`
+* 运行 `npm start`
