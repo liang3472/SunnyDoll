@@ -1,21 +1,24 @@
 const rpio = require('rpio');
-const pin = 12;
+const red = 12;
+const green = 18;
 
-rpio.open(pin, rpio.OUTPUT, rpio.LOW);
+rpio.open(red, rpio.OUTPUT, rpio.LOW);
+rpio.open(green, rpio.OUTPUT, rpio.LOW);
 
-let flash = (count) => {
+let flash = (led, count) => {
     for(let i=0; i<count; i++) {
         setTimeout(()=>{
-            rpio.write(pin, rpio.HIGH);
+            rpio.write(led, rpio.HIGH);
             rpio.sleep(1);
         
-            rpio.write(pin, rpio.LOW);
+            rpio.write(led, rpio.LOW);
             rpio.msleep(500);
         }, i * 1000);
     }
 }
 
-flash(30);
+//flash(red, 30);
+flash(green, 30);
 
 var arguments = process.argv.splice(2);
 console.log('所传递的参数是：', arguments);
