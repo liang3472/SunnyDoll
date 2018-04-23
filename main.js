@@ -9,6 +9,7 @@ let weatherApi = `http://api.map.baidu.com/telematics/v3/weather?location=${loca
 let bdAuth = `https://openapi.baidu.com/oauth/2.0/token?grant_type=client_credentials&client_id=${appKey}&client_secret=${secretKey}`;
 
 let getWeather = (func) => {
+	console.log(`url=${weatherApi}`);
 	axios.get(weatherApi)
  	.then(response => {
     	let weatherInfo = response.data.results[0];
