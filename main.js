@@ -59,6 +59,7 @@ getWeather(text => {
 	console.log(text);
 	getToken(token => {
 		execCmd(`mpg123 "${getVoiceUrl(token, text)}"`);
+		execCmd('node led.js');
 	});
 });
 
