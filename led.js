@@ -11,7 +11,7 @@ let flash = (count) => {
         
             rpio.write(pin, rpio.LOW);
             rpio.msleep(500);
-        }, count * 1000);
+        }, i * 1000);
     }
 }
 
