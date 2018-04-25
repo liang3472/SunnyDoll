@@ -22,7 +22,7 @@ let getWeather = (func) => {
 		let flu = weatherInfo.index[2];
 
     	let weatherText = `${city}今天天气:${weather},气温:${temperature}摄氏度,风向:${wind},pm2.5:${pm25},流感指数:${flu.zs},${flu.des} 穿衣指数:${drsg.zs},${drsg.des}`;
-    	func && func(weatherText);
+    	func && func(weather, weatherText);
   	})
   	.catch(error => {
     	console.log(error);
@@ -54,11 +54,15 @@ let getVoiceUrl = (token, text) => {
 	return `http://tsn.baidu.com/text2audio?lan=zh&ctp=1&cuid=${date}&tok=${token}&tex=${text}&vol=9&per=0&spd=5&pit=5`;
 }
 
-getWeather(text => {
+getWeather((weather, text) => {
 	console.log(text);
 	getToken(token => {
 		execCmd(`mpg123 "${getVoiceUrl(token, text)}"`);
-		execCmd('node led.js');
+		if(/雨/.test(weather)){
+			execCmd('node led.js red');
+		} else {
+			execCmd('node led.js green');
+		}
 	});
 });
 
