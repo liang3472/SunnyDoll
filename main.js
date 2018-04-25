@@ -25,7 +25,6 @@ let getWeather = (func) => {
     	func && func(weatherText);
   	})
   	.catch(error => {
-    	// console.log(error);
     	console.log(error);
   	});
 }
