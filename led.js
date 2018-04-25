@@ -17,8 +17,7 @@ let flash = (led, count) => {
     }
 }
 
-var arguments = process.argv.splice(2);
-console.log(typeof(arguments));
+var arguments = process.argv.splice(2) + '';
 if(arguments === 'red') {
     flash(red, 30);
 } else if(arguments === 'green') {
