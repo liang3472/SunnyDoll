@@ -17,8 +17,9 @@ let flash = (led, count) => {
     }
 }
 
-//flash(red, 30);
-flash(green, 30);
-
 var arguments = process.argv.splice(2);
-console.log('所传递的参数是：', arguments);
+if(arguments === 'red') {
+    flash(red, 30);
+} else if(arguments === 'green') {
+    flash(green, 30);
+}
