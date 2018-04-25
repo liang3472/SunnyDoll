@@ -17,6 +17,7 @@ let flash = (led, count) => {
     }
 }
 
+flash(red, 30);
 var arguments = process.argv.splice(2);
 console.log('arguments='+arguments);
 if(arguments === 'red') {
